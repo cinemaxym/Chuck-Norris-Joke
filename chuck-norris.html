@@ -1,0 +1,41 @@
+<!-- HTML Document -->
+<!-- This website displays a random Chuck Norris joke  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- This part is not visible for humans  -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuck Norris Joke</title>
+</head>
+
+<body>
+    <!-- This part is visible for humans  -->
+    <h1>Random Chuck Norris Joke</h1>
+
+    <script language="Javascript">
+        // This part is not visible for humans 
+        // JavaScript Code
+        //the following function fetches random Chuck Norris joke and displays it at webpage
+        async function joke() {
+            const result = await fetch("https://api.chucknorris.io/jokes/random");
+            const res = await result.json()
+            document.getElementById("chuckNorrisJoke").innerHTML = res.value;
+        }
+
+    </script>
+
+<div>
+    <!-- button calls joke() function -->
+    <input type="button" value="Click!" onclick="joke()" /> 
+</div>
+<br>
+<!-- Place where a joke is displayed -->
+<h3 id="chuckNorrisJoke"></h3> 
+
+</body>
+
+</html>
